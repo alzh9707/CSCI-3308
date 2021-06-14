@@ -1,0 +1,86 @@
+(base) huacaotekiMacBook-Air:~ caohua1$ docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+(base) huacaotekiMacBook-Air:~ caohua1$ docker ps -a
+CONTAINER ID   IMAGE               COMMAND                  CREATED          STATUS                      PORTS                                       NAMES
+5263febadbfc   hello-world         "/hello"                 17 seconds ago   Exited (0) 15 seconds ago                                               epic_booth
+a22b41035ef0   hello-world         "/hello"                 7 minutes ago    Exited (0) 6 minutes ago                                                xenodochial_meitner
+ff1d924c6354   node:12-alpine      "docker-entrypoint.s…"   8 hours ago      Up 8 hours                  0.0.0.0:3000->3000/tcp, :::3000->3000/tcp   sweet_antonelli
+e7a9f255f5b6   ubuntu              "bash"                   2 days ago       Exited (0) 2 days ago                                                   quirky_ishizaka
+7e0ef21ad85b   docker101tutorial   "/docker-entrypoint.…"   2 days ago       Up 2 days                   0.0.0.0:80->80/tcp, :::80->80/tcp           docker-tutorial
+b4dab8dc3d8e   alpine/git          "git clone https://g…"   2 days ago       Exited (0) 2 days ago                                                   repo
+(base) huacaotekiMacBook-Air:~ caohua1$ docker rm 5263febadbfc
+5263febadbfc
+(base) huacaotekiMacBook-Air:~ caohua1$ docker rm a22b41035ef0
+a22b41035ef0
+(base) huacaotekiMacBook-Air:~ caohua1$ docker rm sweet_antonel
+Error: No such container: sweet_antonel
+(base) huacaotekiMacBook-Air:~ caohua1$ docker ps -a 
+CONTAINER ID   IMAGE               COMMAND                  CREATED       STATUS                  PORTS                                       NAMES
+ff1d924c6354   node:12-alpine      "docker-entrypoint.s…"   8 hours ago   Up 8 hours              0.0.0.0:3000->3000/tcp, :::3000->3000/tcp   sweet_antonelli
+e7a9f255f5b6   ubuntu              "bash"                   2 days ago    Exited (0) 2 days ago                                               quirky_ishizaka
+7e0ef21ad85b   docker101tutorial   "/docker-entrypoint.…"   2 days ago    Up 2 days               0.0.0.0:80->80/tcp, :::80->80/tcp           docker-tutorial
+b4dab8dc3d8e   alpine/git          "git clone https://g…"   2 days ago    Exited (0) 2 days ago                                               repo
+(base) huacaotekiMacBook-Air:~ caohua1$ docker rm sweet_antonelli
+Error response from daemon: You cannot remove a running container ff1d924c63549e75bae04137ff4f74a08ceb03a4aa5445df1d8f66ddefa0faec. Stop the container before attempting removal or force remove
+(base) huacaotekiMacBook-Air:~ caohua1$ docker run --rm hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+(base) huacaotekiMacBook-Air:~ caohua1$ docker run -it ubuntu bash
+root@cbcf79ad8d24:/# exit
+exit
+(base) huacaotekiMacBook-Air:~ caohua1$ docker run -dt ubuntu bash
+8a61825bac3974ef59411f1a0207ba1301a8b07b9f852f70b689f3803caf779b
+(base) huacaotekiMacBook-Air:~ caohua1$ docker ps
+CONTAINER ID   IMAGE               COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+8a61825bac39   ubuntu              "bash"                   7 seconds ago   Up 6 seconds                                               inspiring_darwin
+ff1d924c6354   node:12-alpine      "docker-entrypoint.s…"   8 hours ago     Up 8 hours     0.0.0.0:3000->3000/tcp, :::3000->3000/tcp   sweet_antonelli
+7e0ef21ad85b   docker101tutorial   "/docker-entrypoint.…"   2 days ago      Up 2 days      0.0.0.0:80->80/tcp, :::80->80/tcp           docker-tutorial
+(base) huacaotekiMacBook-Air:~ caohua1$ docker rm inspiring_darwin sweet_antonelli
+Error response from daemon: You cannot remove a running container 8a61825bac3974ef59411f1a0207ba1301a8b07b9f852f70b689f3803caf779b. Stop the container before attempting removal or force remove
+Error response from daemon: You cannot remove a running container ff1d924c63549e75bae04137ff4f74a08ceb03a4aa5445df1d8f66ddefa0faec. Stop the container before attempting removal or force remove
+(base) huacaotekiMacBook-Air:~ caohua1$ docker rm -f inspiring_darwin sweet_antonelli
+inspiring_darwin
+sweet_antonelli
+(base) huacaotekiMacBook-Air:~ caohua1$ 
+
