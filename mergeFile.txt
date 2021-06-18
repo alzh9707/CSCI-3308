@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 I will merge the content of this file
 New content that I will merge
+=======
+I will merge this branch later
+>>>>>>> branchMerge
